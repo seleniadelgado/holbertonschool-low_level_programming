@@ -11,19 +11,23 @@ int main(void)
 	char b;
 
 	a = '0';
-	b = '0';
 	while (a <= '9')
 	{
+		b = '0';
 		while (b <= '9')
 		{
-		putchar (a);
-		putchar (b);
-		putchar (',');
-		putchar (' ');
-	b += 1;
+			putchar (a);
+			putchar (b);
+			if (a == '9' && b == '9')
+			{
+				break;
+			}
+			putchar (',');
+			putchar (' ');
+			b += 1;
+		}
+		a += 1;
 	}
-	a += 1;
-}
-putchar('\n');
+	putchar('\n');
 	return (0);
 }
