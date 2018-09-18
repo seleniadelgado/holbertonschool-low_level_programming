@@ -1,0 +1,21 @@
+#include "holberton.h"
+#include <stdio.h>
+#include <ctype.h>
+/**
+ * int _islower(int c) - Write a function that checks for lowercase
+ * character.
+ *
+ */
+int _islower(int c)
+{
+	c = 'c';
+	if (islower(c))
+	{
+		_putchar ('1');
+	}
+	else
+	{
+		_putchar ('0');
+	}
+	return (0);
+}
