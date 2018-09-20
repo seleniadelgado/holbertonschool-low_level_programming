@@ -5,13 +5,13 @@
  * @c: parameter for function.
  * return is always 0.
  */
-int _isupper(int c);
+int _isupper(int c)
 {
 	if (c <= 'Z' && c >= 'A')
 	{
 		return (1);
 	}
-	if else
+	else
 	{
 		return (0);
 	}
