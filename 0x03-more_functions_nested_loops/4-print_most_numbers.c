@@ -3,7 +3,7 @@
 /**
  * print_most_numbers - Write a function that prints the numbers from 0-9,
  * followed by a new line.
- * @c: parameter used for function.
+ *
  * Return: Always 0.
  */
 void print_most_numbers(void)
