@@ -1,31 +1,37 @@
 #include <stdio.h>
+#include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
+ * fizz_buzz - print program.
  *
  * Return: Always 0.
  */
-int main (void)
+int main(void)
 {
 	int x;
 
-	for(x = 1; x < 100; x++)
+	for (x = 1; x <= 100; x++)
 	{
-		printf("%d ", x);
-	}
-	if (x % 15)
-		{
-			printf("Fizz ");
-		}
-	else if (x % 3)
-		{
-			printf("Buzz ");
-		}
-	else if (x % 5)
+		if (x % 15 == 0)
 		{
 			printf("FizzBuzz ");
 		}
+		else if (x % 3 == 0)
+		{
+			printf("Fizz ");
+		}
+		else if (x % 5 == 0)
+		{
+			if (x < 100)
+				printf ("Buzz ");
+			else
+				printf("Buzz");
+		}
+		else
+		{
+		printf("%d ", x);
+		}
 	}
-	printf("\n");
-	return (0);
+printf("\n");
+return (0);
 }
