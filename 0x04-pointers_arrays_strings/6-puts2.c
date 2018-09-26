@@ -3,7 +3,7 @@
 /**
  * puts2 - write a function  that prints ne char out of 2 of a string.
  * followed by a new line.
- *
+ * @str: parameter used.
  * Return: Always 0.
  */
 void puts2(char *str)
