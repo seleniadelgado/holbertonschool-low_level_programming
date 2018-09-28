@@ -1,16 +1,20 @@
 #include "holberton.h"
 
 /**
- * *string_toupper
- * @char: parameter used.
- * Return: Always 0.
+ * *string_toupper - function that capitalizes all words of a string.
+ * @s: parameter used.
+ * Return: s.
  */
-char *string_toupper(char *)
+char *string_toupper(char *s)
 {
-	char *a;
+	int g;
 
-	a = 0;
-	while(a < '\0')
-	a++;
-	return (0);
+	g = 0;
+	while (s[g] != '\0')
+	{
+		if (s[g] >= 97 && s[g] <= 122)
+		s[g] = s[g] - 32;
+		g++;
+	}
+	return (s);
 }
