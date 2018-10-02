@@ -5,7 +5,8 @@
  * *_memset - Write a function that fills memory with a constant byte.
  * @s: pointer.
  * @n: parameter used for first bytes of memory area.
- * Return: s.
+ * @b: parameter used.
+ *Return: s.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
