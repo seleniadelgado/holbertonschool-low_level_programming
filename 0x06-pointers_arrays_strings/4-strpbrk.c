@@ -1,5 +1,4 @@
 #include "holberton.h"
-#define NULL ((char *)0)
 
 /**
  * *_strpbrk - function that searches a string for any of a set of bytes..
@@ -23,6 +22,7 @@ char *_strpbrk(char *s, char *accept)
 			}
 			j++;
 		}
-		i++;
-return ('\0');
+	i++;
+	}
+	return ('\0');
 }
