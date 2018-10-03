@@ -8,15 +8,15 @@
 void print_chessboard(char (*a)[8])
 {
 	int row = 0;
-	int column;
+	int col;
 
 	while (row < 8)
 	{
-		column = 0;
-		while (column < 8)
+		col = 0;
+		while (col < 8)
 		{
-			_putchar(a[row][column]);
-			column++;
+			_putchar(a[row][col]);
+			col++;
 		}
 		row++;
 		_putchar('\n');
