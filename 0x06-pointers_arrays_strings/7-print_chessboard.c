@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_chessboard - function that prints a chessboard
+ * print_chessboard - function that prints a chessboard.
  * @a: parameter used.
  *
  **/
@@ -18,7 +18,8 @@ void print_chessboard(char (*a)[8])
 			_putchar(a[row][column]);
 			column++;
 		}
-	row++;
-	_putchar('\n');
+		row++;
+		_putchar('\n');
 	}
+
 }
