@@ -2,12 +2,12 @@
 #include "holberton.h"
 
 /**
- * _whatsmyname - print name.
+ * main - print name.
  * Return: 0.
  * @argc: parameter used.
  * @argv: parameter used.
  */
-int _whatsmyname(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int i;
 
