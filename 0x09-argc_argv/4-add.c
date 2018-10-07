@@ -11,28 +11,21 @@
  */
 int main(int argc, char *argv[])
 {
-	int num1 = 0;
-	int sum = 0;
-	int num2 = 0;
+	int num1, sum = 0, num2, a;
 
-	if (argc != 3)
+	for (num1 = 1; num1 < argc; num1++)
 	{
-		printf("0\n");
-		return (1);
+		for (num2 = 0; argv[num1][num2] != '\0'; num2++)
+		{
+			if (!isdigit(argv[num1][num2]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		a = atoi(argv[num1]);
+		sum += a;
 	}
-	for (num1 = 0; num1 < argc; num1++)
-		for (num2 = 0; num1 < '\0'; num2++)
-		if (!isdigit(argv[num1][num2]))
-		{
-			printf("Error\n");
-			return (1);
-		}
-		else
-		{
-			num1 = atoi(argv[1]);
-			num2 = atoi(argv[2]);
-			sum = num1 * num2;
-			printf("%d\n", sum);
-		}
+	printf("%d\n", sum);
 	return (0);
 }
