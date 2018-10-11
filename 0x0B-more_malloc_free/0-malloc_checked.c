@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 /**
- * *malloc_checked a functiont that allocates memory using malloc.
- *
+ * *malloc_checked - function that allocates memory using malloc.
+ * @b: parameter b to be tested as float, char, or int.
  * Return: Always 0.
  */
 void *malloc_checked(unsigned int b)
