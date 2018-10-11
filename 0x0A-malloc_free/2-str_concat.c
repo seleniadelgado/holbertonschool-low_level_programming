@@ -22,11 +22,11 @@ char *str_concat(char *s1, char *s2)
 		s2 = "";
 	for (x = 0; s1[x] != '\0'; x++)
 		;
-	{
 	for (y = 0; s2[y] != '\0'; y++)
+		;
 	ptr = malloc(sizeof((char) x + y) + 1);
-		if (ptr == NULL)
-			return (NULL);
+	if (ptr == NULL)
+		return (NULL);
 	for (index = 0; s1[index] != '\0'; index++)
 		ptr[index] = s1[index];
 	for (index2 = 0; s2[index2] != '\0'; index2++)
@@ -35,5 +35,4 @@ char *str_concat(char *s1, char *s2)
 	}
 	ptr[index] = '\0';
 	return (ptr);
-	}
 }
