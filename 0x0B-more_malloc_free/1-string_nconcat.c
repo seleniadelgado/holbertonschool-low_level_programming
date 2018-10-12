@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (a = 0; s1[a] != '\0'; a++)
 		;
 	for (b = 0; s2[b] != '\0' && b < n; b++)
-	ptr = malloc(sizeof(char) * (a + 1));
+	ptr = malloc(sizeof(char) * (a + n + 1));
 	if (ptr == NULL)
 		return (NULL);
 	for (index1 = 0; s1[index1] != '\0'; index1++)
