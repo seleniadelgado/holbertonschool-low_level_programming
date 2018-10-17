@@ -2,24 +2,28 @@
 
 /**
  * print_triangle - Make a triangle.
- *
+ * @size: parameter used for size.
  * Return: Always 0.
  */
 void print_triangle(int size)
 {
-	int tri;
-	int angle;
+	int height;
+	int width;
+
 	if (size <= 0)
 		_putchar('\n');
-	else
+	for (width = 0; width <= size; width++)
 	{
-		for (tri = 1; tri <= size; tri++)
+		for (height = 0; height <= size; height++)
 		{
-		for (angle = size - tri; angle <= size; angle--)
-			_putchar(' ');
+			if (height <= (size - width))
+				_putchar(' ');
+		else
+				_putchar('#');
 		}
-		for (angle = 1; angle <= size; angle++)
-			_putchar('#');
-
+		_putchar('\n');
 	}
+
+	if (size <= 0)
+		_putchar('\n');
 }
