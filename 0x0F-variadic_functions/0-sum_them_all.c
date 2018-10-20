@@ -3,10 +3,9 @@
 #include "variadic_functions.h"
 
 /**
- * sum_them_all - returns the sum of all its parameters.
+ * sum_them_all - a function that returns the sum of all its parameters.
  * @n: unsigned int used in function for addition.
  * Return: sum.
- *
  */
 int sum_them_all(const unsigned int n, ...)
 {
@@ -16,6 +15,7 @@ int sum_them_all(const unsigned int n, ...)
 
 	if (n == 0)
 		return (0);
+
 	va_start(arguments, n);
 	sum = 0;
 	for (i = 0; i < n; i++)
