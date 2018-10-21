@@ -55,7 +55,7 @@ void print_string_function(va_list r)
 /**
  * print_all - function that prints anything.
  * @format: list of types of arguments passed to the function.
- * Return: Always 0.
+ *
  * print_t - structure.
  */
 void print_all(const char * const format, ...)
@@ -77,7 +77,7 @@ void print_all(const char * const format, ...)
 	j = 0;
 	while ((format[i] != '\0') && (format != NULL))
 	{
-		while (names[j].name != NULL)
+		while (j < 4)
 		{
 			if (format[i] == *(names[j].name))
 			{
