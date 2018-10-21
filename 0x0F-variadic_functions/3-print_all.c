@@ -71,8 +71,9 @@ void print_all(const char * const format, ...)
 
 	va_list ap;
 
-	int i = 0;
-	int j = 0;
+	unsigned int i = 0;
+	unsigned int j = 0;
+
 	separator = "";
 
 	va_start(ap, format);
