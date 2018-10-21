@@ -73,9 +73,9 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 	separator = "";
 	i = 0;
+	j = 0;
 	while ((format[i] != '\0') && (format != NULL))
 	{
-		j = 0;
 		while (names[j].name != NULL)
 		{
 			if (format[i] == *(names[j].name))
@@ -84,9 +84,10 @@ void print_all(const char * const format, ...)
 				names[j].type(ap);
 				separator = ", ";
 			}
-	j++;
+		j++;
 		}
 	i++;
+	j = 0;
 	}
 	printf("\n");
 	va_end(ap);
