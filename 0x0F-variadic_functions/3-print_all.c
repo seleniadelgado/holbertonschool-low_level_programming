@@ -67,14 +67,16 @@ void print_all(const char * const format, ...)
 	{"s", print_string_function},
 	{NULL, NULL}
 	};
-	va_list ap;
-	int i, j;
 	char *separator;
 
-	va_start(ap, format);
+	va_list ap;
+
+	int i = 0;
+	int j = 0;
 	separator = "";
-	i = 0;
-	j = 0;
+
+	va_start(ap, format);
+
 	while ((format[i] != '\0') && (format != NULL))
 	{
 		while (j < 4)
