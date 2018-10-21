@@ -20,8 +20,8 @@ typedef struct name
 	char *name;
 	void (*type)(va_list ap);
 } print_t;
-void print_char_function(va_list ap);
-void print_int_function(va_list ap);
-void print_float_function(va_list ap);
-void print_string_function(va_list ap);
+void print_char_function(va_list c);
+void print_int_function(va_list i);
+void print_float_function(va_list f);
+void print_string_function(va_list r);
 #endif
