@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+int _strlen(const char *s);
 /**
  * add_node - a function that adds a new node at the beginning of a list_t
  * list.
@@ -24,7 +24,10 @@ list_t *add_node(list_t **head, const char *str)
 	len = _strlen(str);
 	s = malloc(sizeof(char) * len + 1);
 	if (s == NULL)
+	{
+		free(newhead);
 		return (NULL);
+	}
 	s = strdup(str);
 	newhead->str = s;
 	newhead->next = *head;
