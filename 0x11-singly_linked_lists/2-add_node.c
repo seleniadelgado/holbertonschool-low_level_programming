@@ -1,7 +1,8 @@
+#include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "lists.h"
 #include <string.h>
+
 /**
  * add_node - a function that adds a new node at the beginning of a list_t
  * list.
@@ -13,21 +14,37 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *newhead;
 	int len;
-	char *number;
+	char *s;
 
 	if ((head == NULL) && (str == NULL))
 		return (NULL);
 	newhead = malloc(sizeof(list_t));
 	if (newhead == NULL)
 		return (NULL);
-	len = strlen(str);
-	number = malloc(sizeof(char) * len + 1);
-	if (number == NULL)
+	len = _strlen(str);
+	s = malloc(sizeof(char) * len + 1);
+	if (s == NULL)
 		return (NULL);
-	number = strdup(str);
-	newhead->str = number;
+	s = strdup(str);
+	newhead->str = s;
 	newhead->next = *head;
 	newhead->len = len;
 	*head = newhead;
 	return (newhead);
+}
+/**
+ * _strlen - write a function that returns the length of a string.
+ * @s: string that's passed in function
+ * Return: length.
+ */
+int _strlen(const char *s)
+{
+	int l = 0;
+
+	while (*s != '\0')
+	{
+		l++;
+		s++;
+	}
+	return (l);
 }
