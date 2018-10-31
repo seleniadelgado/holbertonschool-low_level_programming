@@ -5,7 +5,7 @@
 /**
  * free_listint2 - function that frees a listint_t list.
  * @head: parameter that needs freeing.
- *
+ * Return: Always 0.
  */
 void free_listint2(listint_t **head)
 {
@@ -19,5 +19,4 @@ void free_listint2(listint_t **head)
 		*head = (*head)->next;
 		free(tmp);
 	}
-	head = NULL;
 }
