@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * lintint_t function adds a new node at the end of a listint_t list.
+ * add_nodeint_end - function adds a new node at the end of a listint_t list.
  * @n: parameter that is added to new end.
+ * @head: parameter for head of list.
  * Return: address of new element or NULL if failed.
  */
 listint_t *add_nodeint_end(listint_t **head, const int n)
