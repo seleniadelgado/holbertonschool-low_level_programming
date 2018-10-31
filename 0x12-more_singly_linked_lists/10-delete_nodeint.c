@@ -3,10 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 /**
- * delete_nodeint_at_index function that deletes the node at index
+ * delete_nodeint_at_index - function that deletes the node at index
  * of a listint_t linked list.
- * @index index of the node that should be deleted. Index starts at 0.
- * Returns: 1 if it succeeded, -1 if it failed.
+ * @head: first node of list.
+ * @index: index of the node that should be deleted. Index starts at 0.
+ * Return: 1 if it succeeded, -1 if it failed.
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
@@ -20,10 +21,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	{
 		temp = *head;
 		*head = (*head)->next;
-		free (temp);
+		free(temp);
 		return (1);
 	}
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		i++;
 		temp = temp->next;
@@ -32,7 +33,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 	i = 0;
 	temp = *head;
-	while (i  < index-1)
+	while (i  < index - 1)
 	{
 		i++;
 		temp = temp->next;
