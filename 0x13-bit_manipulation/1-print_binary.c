@@ -6,14 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int j = n;
-
-	while (j)
-	{
-		if ((n & j) == 0)
-			_putchar ('0');
-		else
-			_putchar('1');
-	j = j >> 1;
-	}
+	if (n > 1)
+	print_binary(n >> 1);
+	putchar ((n & 1) + '0');
 }
