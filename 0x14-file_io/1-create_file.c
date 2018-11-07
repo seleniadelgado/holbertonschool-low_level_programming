@@ -23,7 +23,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	for (n = 0; text_content[n] != '\0'; n++)
 		;
-	world = write(STDOUT_FILENO, text_content, n);
+	world = write(hello, text_content, n);
 	if (world == -1)
 		return (-1);
 	close(hello);
