@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 void openfail(char *s)
 {
 	dprintf(STDOUT_FILENO, "Error: Can't read");
-	dprintf(STDOUT_FILENO, "from file %s\n", argv[1]);
+	dprintf(STDOUT_FILENO, "from file %s\n", s);
 	exit(98);
 }
 /**
@@ -63,7 +63,7 @@ void openfail(char *s)
 void readfail(char *s)
 {
 	dprintf(STDOUT_FILENO, "Error: Can't read");
-	dprintf(STDOUT_FILENO, "from file %s\n", argv[1]);
+	dprintf(STDOUT_FILENO, "from file %s\n", s);
 	exit(98);
 }
 /**
@@ -72,6 +72,6 @@ void readfail(char *s)
  */
 void writefail(char *s)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
+	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", s);
 	exit(99);
 }
