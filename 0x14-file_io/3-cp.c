@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		return (-1);
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
-		openfail(argv[2]);
+		writefail(argv[2]);
 	while ((text = read(file_from, pbuffer, 1024)) != 0)
 	{
 		if (text == -1)
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 				return (-1);
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 		if (file_to == -1)
-			openfail(argv[2]);
+			writefail(argv[2]);
 			}
 	}
 	garage = close(file_to);
