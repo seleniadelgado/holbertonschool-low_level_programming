@@ -8,42 +8,49 @@
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, runner, text, lamp, garage, door;
-	char pbuffer[1024];
+	char *pbuffer = NULL;
 
 	if (argc != 3)
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to");
-			exit(97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 		openfail(argv[1]);
+	pbuffer = malloc(1024);
+	if (pbuffer == NULL)
+		return (-1);
 	for (runner = 0; pbuffer[runner] != '\0'; runner++)
-		;
+                ;
 	text = read(file_from, pbuffer, 1024);
 	if (text == -1)
 		openfail(argv[1]);
 	file_to = open(argv[2], O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(98);
-	}
+		openfail(argv[2]);
 	lamp = write(file_to, pbuffer, text);
 	if (lamp == -1)
 		writefail(argv[2]);
+	while ((text = read(file_from, pbuffer, 1024)) > 0)
+	{
+		lamp = write(file_to, pbuffer, text);
+		if(text == 1024)
+			free(pbuffer);
+		pbuffer = malloc(1024);
+			if (pbuffer == NULL)
+				return (-1);
+		file_to = open(argv[2], O_WRONLY | O_APPEND);
+		if (file_to == -1)
+			openfail(argv[2]);
+	}
 	garage = close(file_to);
 	if (garage == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %i\n", garage);
-		exit(100);
-	}
+		closefail(garage);
 	door = close(file_from);
 	if (door == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %i\n", door);
-		exit(100);
-	}
+		closefail(door);
+	free(pbuffer);
 	return (0);
 }
 /**
@@ -52,8 +59,7 @@ int main(int argc, char *argv[])
  */
 void openfail(char *s)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't read ");
-	dprintf(STDOUT_FILENO, "from file %s\n", s);
+	dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", s);
 	exit(98);
 }
 /**
@@ -64,4 +70,13 @@ void writefail(char *s)
 {
 	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", s);
 	exit(99);
+}
+/**
+ * closefail - prints string and exits if open fails.
+ * @s: parameter of type char passed to the function for printing.
+ */
+void closefail(int n)
+{
+	dprintf(STDOUT_FILENO, "Error: Can't close fd %i\n", n);
+	exit(100);
 }
