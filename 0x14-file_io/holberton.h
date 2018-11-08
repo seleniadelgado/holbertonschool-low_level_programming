@@ -15,4 +15,5 @@ int main(int argc, char *argv []);
 void openfail(char *s);
 void readfail(char *s);
 void writefail(char *s);
+void closefail(int n);
 #endif
