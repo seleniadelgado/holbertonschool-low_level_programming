@@ -11,10 +11,7 @@ int main(int argc, char *argv[])
 	char *pbuffer = NULL;
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		checkar(argc);
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 		openfail(argv[1]);
@@ -31,7 +28,7 @@ int main(int argc, char *argv[])
 		lamp = write(file_to, pbuffer, text);
 		if (lamp == -1)
 			writefail(argv[2]);
-		if (lamp == 1024)
+		else if (lamp == 1024)
 			{
 			free(pbuffer);
 		pbuffer = malloc(1024);
@@ -77,4 +74,16 @@ void closefail(int n)
 {
 	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", n);
 	exit(100);
+}
+/**
+ * checkar - function checks arguments.
+ * @n: parameter passed for function.
+ */
+void checkar(int n)
+{
+	if (n != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 }
