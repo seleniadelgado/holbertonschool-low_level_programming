@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 		lamp = write(file_to, pbuffer, text);
 		if (lamp == -1)
 			writefail(argv[2]);
-		if (text == 1024)
-		{
+		if (lamp == 1024)
+			{
 			free(pbuffer);
 		pbuffer = malloc(1024);
 			if (pbuffer == NULL)
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 		if (file_to == -1)
 			openfail(argv[2]);
-		}
+			}
 	}
 	garage = close(file_to);
 	if (garage == -1)
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
  */
 void openfail(char *s)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", s);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
 	exit(98);
 }
 /**
@@ -66,7 +66,7 @@ void openfail(char *s)
  */
 void writefail(char *s)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", s);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
 	exit(99);
 }
 /**
@@ -75,6 +75,6 @@ void writefail(char *s)
  */
 void closefail(int n)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't close fd %i\n", n);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", n);
 	exit(100);
 }
