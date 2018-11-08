@@ -17,13 +17,13 @@ int main(int argc, char *argv[])
 	}
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-		openfail(file_from
+		openfail(argv[1]);
 	for (runner = 0; pbuffer[runner] != '\0'; runner++)
 		;
 	text = read(file_from, pbuffer, 1024);
 	if (text == -1)
-		readfail(text);
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+		openfail(argv[1]);
+	file_to = open(argv[2], O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	}
 	lamp = write(file_to, pbuffer, text);
 	if (lamp == -1)
-		writefail(lamp)
+		writefail(argv[2]);
 	garage = close(file_to);
 	if (garage == -1)
 	{
@@ -52,17 +52,7 @@ int main(int argc, char *argv[])
  */
 void openfail(char *s)
 {
-	dprintf(STDOUT_FILENO, "Error: Can't read");
-	dprintf(STDOUT_FILENO, "from file %s\n", s);
-	exit(98);
-}
-/**
- * readfail - prints string and exits if read fails.
- * @s: parameter of type char passed to the function for printing.
- */
-void readfail(char *s)
-{
-	dprintf(STDOUT_FILENO, "Error: Can't read");
+	dprintf(STDOUT_FILENO, "Error: Can't read ");
 	dprintf(STDOUT_FILENO, "from file %s\n", s);
 	exit(98);
 }
