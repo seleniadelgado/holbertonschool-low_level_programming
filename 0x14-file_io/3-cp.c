@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, runner, text, lamp, garage, door;
+	int file_from, file_to, text, lamp, garage, door;
 	char *pbuffer = NULL;
 
 	if (argc != 3)
@@ -21,21 +21,18 @@ int main(int argc, char *argv[])
 	pbuffer = malloc(1024);
 	if (pbuffer == NULL)
 		return (-1);
-	for (runner = 0; pbuffer[runner] != '\0'; runner++)
-                ;
-	text = read(file_from, pbuffer, 1024);
-	if (text == -1)
-		openfail(argv[1]);
-	file_to = open(argv[2], O_WRONLY | O_TRUNC, 0664);
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 		openfail(argv[2]);
-	lamp = write(file_to, pbuffer, text);
-	if (lamp == -1)
-		writefail(argv[2]);
-	while ((text = read(file_from, pbuffer, 1024)) > 0)
+	while ((text = read(file_from, pbuffer, 1024)) != 0)
 	{
+		if (text == -1)
+			openfail(argv[1]);
 		lamp = write(file_to, pbuffer, text);
-		if(text == 1024)
+		if (lamp == -1)
+			writefail(argv[2]);
+		if (text == 1024)
+		{
 			free(pbuffer);
 		pbuffer = malloc(1024);
 			if (pbuffer == NULL)
@@ -43,6 +40,7 @@ int main(int argc, char *argv[])
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 		if (file_to == -1)
 			openfail(argv[2]);
+		}
 	}
 	garage = close(file_to);
 	if (garage == -1)
@@ -73,7 +71,7 @@ void writefail(char *s)
 }
 /**
  * closefail - prints string and exits if open fails.
- * @s: parameter of type char passed to the function for printing.
+ * @n: parameter of type char passed to the function for printing.
  */
 void closefail(int n)
 {
