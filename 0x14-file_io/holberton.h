@@ -16,4 +16,5 @@ void openfail(char *s);
 void readfail(char *s);
 void writefail(char *s);
 void closefail(int n);
+void checkar(int n);
 #endif
