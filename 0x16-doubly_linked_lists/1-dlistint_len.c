@@ -2,7 +2,8 @@
 /**
  * dlistint_len - function that returns the number of elements in a linked
  * dlistint_t list.
- * Return:
+ * @h: parameter passed throught the function.
+ * Return: return the number of nodes.
  */
 size_t dlistint_len(const dlistint_t *h)
 {
@@ -14,5 +15,5 @@ size_t dlistint_len(const dlistint_t *h)
 		temp = temp->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
