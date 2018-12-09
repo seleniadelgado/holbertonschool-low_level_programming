@@ -24,27 +24,23 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			newnode->next = temp;
 			newnode->prev = NULL;
 			*h = newnode;
-			return (newnode);
-		}
+			return (newnode); }
 		else if (temp == NULL)
 		{
 			newnode->next = NULL;
 			newnode->prev = NULL;
 			*h = newnode;
-			return (newnode);
-		}
+			return (newnode); }
 	}
-	while (temp != NULL)
+	while (temp->next != NULL)
 	{
 		if (i == idx)
 		{
 			storage = temp->prev;
-			temp->prev = newnode;
 			newnode->prev = storage;
 			storage->next = newnode;
 			newnode->next = temp;
-			return (newnode);
-		}
+			return (newnode); }
 		temp = temp->next;
 		i++;
 	}
@@ -53,9 +49,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp->next = newnode;
 		newnode->prev = temp;
 		newnode->next = NULL;
-		return (newnode);
-	}
+		return (newnode); }
 	if (idx > (i + 1))
 		return (NULL);
-	return (NULL);
-}
+	return (NULL); }
