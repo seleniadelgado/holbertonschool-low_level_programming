@@ -35,7 +35,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (newnode);
 		}
 	}
-	while (temp != NULL)
+	while (temp->next != NULL)
 	{
 		if (i == idx)
 		{
@@ -51,7 +51,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	i = 0;
 	temp = *h;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		if (idx == i + 1)
 		{
