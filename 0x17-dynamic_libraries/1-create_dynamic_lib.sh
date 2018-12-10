@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -shared -fPIC *.c -o libhello.so
+gcc -shared -o libhello.so *.o
