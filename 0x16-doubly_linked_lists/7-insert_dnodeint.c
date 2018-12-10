@@ -3,6 +3,7 @@
  * insert_dnodeint_at_index - inserts a new node at given position.
  * @h: list passed through.
  * @n: node to be inserted.
+ * @idx: index where node is added.
  * Return: address of new node.
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
@@ -20,8 +21,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (idx == 0)
 	{
 		newnode = addnodeint(h, n);
-		return (newnode);
-	}
+		return (newnode); }
 	while (temp != NULL)
 	{
 		if (i == idx)
@@ -43,11 +43,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			temp->next = newnode;
 			newnode->prev = temp;
 			newnode->next = NULL;
-			return (newnode);
-		}
+			return (newnode); }
 		temp = temp->next;
-		i++;
-	}
+		i++; }
 	return (NULL);
 }
 /**
