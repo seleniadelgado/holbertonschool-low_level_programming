@@ -1,0 +1,6 @@
+[submodule "monty"]
+	path = monty
+	url = https://github.com/seleniadelgado/monty.git
+[submodule "0x18-stacks_queues_lifo_fifo/monty"]
+	path = 0x18-stacks_queues_lifo_fifo/monty
+	url = https://github.com/seleniadelgado/monty.git
