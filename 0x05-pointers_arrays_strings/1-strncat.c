@@ -1,19 +1,17 @@
 #include "holberton.h"
-
 /**
- * *_strncat - a function that concatenates two strings.
- * @src: parameter used.
- * @dest: parameter used.
- * @n: parameter used.
- * Return: dest .
+ * _strncat - a function that concatenates two strings, adding up to n bytes
+ * from src to dest.
+ * @src: source string where we will copy n amount of bytes.
+ * @dest: destination pointer where we will add the string to.
+ * @n: up to how many bytes from src that we are going to copy.
+ * Return: a pointer to the resulting string dest.
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int h;
-	int o;
+	int h = 0;
+	int o = 0;
 
-	h = 0;
-	o = 0;
 	while (dest[h] != '\0')
 	{
 		h++;
@@ -23,6 +21,5 @@ char *_strncat(char *dest, char *src, int n)
 		dest[h + o] = src[o];
 		o++;
 	}
-	dest[h + o] = '\0';
 	return (dest);
 }
