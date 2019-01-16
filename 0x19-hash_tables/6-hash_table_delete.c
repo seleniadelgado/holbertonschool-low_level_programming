@@ -16,10 +16,10 @@ void hash_table_delete(hash_table_t *ht)
 		free(ht);
 		return;
 	}
-	for (hash_number = 0; hash_number < ht->size; hash_number++);
+	for (hash_number = 0; hash_number < ht->size; hash_number++)
 	{
 		object = ht->array[hash_number];
-		while(object != NULL)
+		while (object != NULL)
 		{
 			free(object->value);
 			free(object->key);
