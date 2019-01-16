@@ -41,11 +41,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				free(new_element);
 				return (1);
 			}
-		index = index->next;
+			index = index->next;
 		}
 		index = ht->array[hash_number];
 		new_element->next = index;
-		return (1);
+		ht->array[hash_number] = new_element;
 	}
 	return (1);
 }
