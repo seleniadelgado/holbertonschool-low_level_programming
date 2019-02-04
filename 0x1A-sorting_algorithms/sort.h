@@ -1,6 +1,5 @@
-#ifndef _SORT_H_
-#define _SORT_H_
-#include <stdlib.h>
+#ifndef _SORT_H
+#define _SORT_H
 #include <stdio.h>
 #include <unistd.h>
 
