@@ -5,11 +5,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *i = *list, *y, *swap, *rn, *swap2, *temp;
+	listint_t *i, *y, *swap, *rn, *swap2, *temp;
 	int a;
 
-	if ((list == NULL || (*list) == NULL || (*list)->next == NULL))
+	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
+	i = *list;
 	while (i->next != NULL)
 	{
 		y = i->next;
@@ -38,8 +39,7 @@ void insertion_sort_list(listint_t **list)
 					if (a == 1)
 					{
 						i = rn;
-						a = 5; }
-				}
+						a = 5; } }
 				else
 					break;
 				rn = swap2->prev; } }
