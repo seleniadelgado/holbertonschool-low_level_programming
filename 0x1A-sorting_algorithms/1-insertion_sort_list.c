@@ -5,23 +5,23 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *i, *y, *swap, *rn, *swap2, *temp;
+	listint_t *current, *second, *swap, *rn, *swap2, *temp;
 	int a;
 
 	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
-	i = *list;
-	while (i->next != NULL)
+	current = *list;
+	while (current->next != NULL)
 	{
-		y = i->next;
-		swap = i;
+		second = current->next;
+		swap = current;
 		a = 1;
-		if (y->n < i->n)
+		if (second->n < current->n)
 		{
-			rn = i;
-			swap2 = rn->next;
+			rn = current;
 			while (rn != NULL)
 			{
+				swap2 = rn->next;
 				if (swap2->n < rn->n)
 				{
 					temp = swap2;
@@ -38,10 +38,10 @@ void insertion_sort_list(listint_t **list)
 					print_list(*list);
 					if (a == 1)
 					{
-						i = rn;
+						current = rn;
 						a = 5; } }
 				else
 					break;
 				rn = swap2->prev; } }
 		if (a == 1)
-			i = i->next; } }
+			current = current->next; } }
