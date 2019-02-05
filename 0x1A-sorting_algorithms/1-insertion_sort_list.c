@@ -6,7 +6,6 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *second, *swap, *rn, *swap2, *temp;
-	int a;
 
 	if (list == NULL || (*list) == NULL)
 		return;
@@ -15,7 +14,6 @@ void insertion_sort_list(listint_t **list)
 	{
 		second = current->next;
 		swap = current;
-		a = 1;
 		if (second->n < current->n)
 		{
 			rn = current;
@@ -36,12 +34,10 @@ void insertion_sort_list(listint_t **list)
 						*list = temp;
 					rn->prev = temp;
 					print_list(*list);
-					if (a == 1)
-					{
-						current = rn;
-						a = 5; } }
+				}
 				else
 					break;
-				rn = swap2->prev; } }
-		if (a == 1)
+				rn = swap2->prev; }
+		}
+		else
 			current = current->next; } }
