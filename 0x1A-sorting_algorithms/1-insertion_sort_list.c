@@ -5,15 +5,14 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current, *second, *swap, *rn, *swap2, *temp;
+	listint_t *current, *second, *rn, *swap2, *temp;
 
-	if (list == NULL || (*list) == NULL)
+	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
 	current = *list;
 	while (current->next != NULL)
 	{
 		second = current->next;
-		swap = current;
 		if (second->n < current->n)
 		{
 			rn = current;
@@ -25,7 +24,7 @@ void insertion_sort_list(listint_t **list)
 					temp = swap2;
 					rn->next = temp->next;
 					swap2->prev = rn->prev;
-					if (swap->next != NULL)
+					if (swap2->next != NULL)
 						swap2->next->prev = rn;
 					swap2->next = rn;
 					if (rn->prev != NULL)
