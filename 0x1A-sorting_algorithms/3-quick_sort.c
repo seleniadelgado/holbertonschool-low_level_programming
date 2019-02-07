@@ -1,19 +1,6 @@
 #include "sort.h"
 
 void rec_quicksort(int *array, int start, int end, size_t size);
-/**
- * _swap - function to swap two values around.
- * @a: first item to be swapped.
- * @b: second item to be swapped.
- */
-void _swap(int* a, int* b)
-{
-        int temp;
-
-        temp = a;
-        *a = *b;
-        *b = temp;
-}
 
 /**
  * _partition - partitions the array to a pivot point. Compares them and
@@ -28,6 +15,7 @@ int _partition(int *array, int start, int end, size_t size)
 {
 	int pivot = end;
 	int behind = (start - 1);
+	int temp;
 
 	for (; start < pivot; start++)
 	{
@@ -36,14 +24,18 @@ int _partition(int *array, int start, int end, size_t size)
 			behind++;
 			if (behind != start)
 			{
-				_swap(array[behind], array[start]);
+				temp = array[behind];
+				array[behind] = array[start];
+				array[start] = temp;
 				print_array(array, size);
 			}
 		}
 	}
-	if (behind != pivot)
+	if (behind + 1 != pivot)
 	{
-		_swap(array[behind + 1], array[pivot]);
+		temp = array[behind + 1];
+		array[behind + 1] = array[pivot];
+		array[pivot] = temp;
 		print_array(array, size);
 	}
 	return (behind + 1);
@@ -57,13 +49,13 @@ int _partition(int *array, int start, int end, size_t size)
  */
 void rec_quicksort(int *array, int start, int end, size_t size)
 {
-	int shoji;
+	int s;
 
 	if (start < end)
 	{
-		shoji = _partition(array, start, end, size);
-		rec_quicksort(array, start, (shoji - 1), size);
-		rec_quicksort(array, (shoji + 1), end, size);
+		s = _partition(array, start, end, size);
+		rec_quicksort(array, start, (s - 1), size);
+		rec_quicksort(array, (s + 1), end, size);
 	}
 }
 /**
