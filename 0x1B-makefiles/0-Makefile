@@ -1,0 +1,3 @@
+#create first Makefile.
+all: main.c holberton
+	gcc main.c holberton.c -o holberton
