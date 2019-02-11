@@ -1,4 +1,4 @@
 #Make a make file with variables.
 all: holberton.c
-CC: gcc
-SRC: *.c
+CC=gcc
+SRC=*.c
