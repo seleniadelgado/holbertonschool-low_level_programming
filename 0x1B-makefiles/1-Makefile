@@ -1,4 +1,5 @@
 #Make a make file with variables.
+CC = gcc
+SRC = *.c
 all: holberton.c
-CC=gcc
-SRC=*.c
+	$(CC) $(SRC) -o holberton
