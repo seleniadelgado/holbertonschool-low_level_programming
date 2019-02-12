@@ -1,4 +1,3 @@
-#executable files
 CC = gcc
 SRC = main.c holberton.c
 OBJ = $(SRC:%.c=%.o)
@@ -6,14 +5,13 @@ NAME = holberton
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 .PHONY: re fclean oclean clean all
-
 all: $(OBJ)
-        $(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 clean:
-        $(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)
 oclean:
-        $(RM) $(OBJ)
+	$(RM) $(OBJ)
 fclean:
-        $(RM) *~ $(NAME)
-        $(RM) $(OBJ)
+	$(RM) *~ $(NAME)
+	$(RM) $(OBJ)
 re:     oclean all
