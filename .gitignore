@@ -1,0 +1,5 @@
+main*
+*.swp
+*~
+print_tree.c
+a.out
