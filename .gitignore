@@ -3,3 +3,4 @@ main*
 *~
 print_tree.c
 a.out
+*.swo
