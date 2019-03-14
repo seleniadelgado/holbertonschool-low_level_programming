@@ -8,9 +8,6 @@
 
  int binary_tree_is_full(const binary_tree_t *tree)
  {
-	// itertate through each node and see if any of them have only 1 child
-	// if it does, then return 0
-	// else return 1
 	int full_flag = 1;
 
 	if (tree->left)
