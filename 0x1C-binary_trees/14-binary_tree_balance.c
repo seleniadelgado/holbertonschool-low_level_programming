@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * binary_tree_balance - checks the balance factor of a binary tree
  * @tree: the root of the tree
