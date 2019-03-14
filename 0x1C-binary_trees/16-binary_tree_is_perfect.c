@@ -12,28 +12,22 @@
 	int right_height= 0;
 
 	if (tree->left)
-		left_height = binary_tree_is_perfect(tree->left);
-	printf("@node: %i l- height: %i\n", tree->n, left_height);
+		left_height = binary_tree_is_perfect(tree->left) + 1;
 	if (tree->right)
-		right_height = binary_tree_is_perfect(tree->right);
-	printf("@node: %i r- height: %i\n", tree->n, right_height);
-	if (left_height != right_height)
+		right_height = binary_tree_is_perfect(tree->right) + 1;
+	if (!tree->parent)	
 	{
-		printf("return if not right height\n");
-		return (0);
+			if (left_height == 1 ||  right_height == 1)
+				return (0);
+			else
+				return (1);
 	}
-
+	if (left_height != right_height)
+		return (0);
 	/* check if its a leaf */
 	if (!tree->left && !tree->right)
-	{
-		printf("return 1 if its a leaf\n");
 		return (1);
-	}
 	if (!tree->left || !tree->right)
-	{
-		printf("return 0 if a node has a child\n");
 		return (0);
-	}
-	printf("else return height\n");
 	return (left_height);
  }
