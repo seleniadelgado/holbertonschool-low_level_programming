@@ -10,12 +10,12 @@
 bt *binary_trees_ancestor(const bt *first, const bt *second)
 {
 	unsigned int f_depth, s_depth, d_depth;
-	f_depth = s_depth = d_depth = 0;
 	unsigned int i;
 	const bt *f, *s, *lower, *other;
 
+	f_depth = s_depth = d_depth = 0;
 	if (!first || !second)
-		return;
+		return (NULL);
 	f = first;
 	s = second;
 
