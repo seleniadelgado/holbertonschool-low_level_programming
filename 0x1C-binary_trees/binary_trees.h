@@ -20,6 +20,12 @@ struct binary_tree_s
     struct binary_tree_s *right;
 };
 
+typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s bt;
+typedef struct binary_tree_s bst_t;
+typedef struct binary_tree_s avl_t;
+typedef struct binary_tree_s heap_t;
+
 /**
  * struct ll_t - A linked list of nodes
  * @node: A binary tree node
@@ -31,17 +37,13 @@ typedef struct ll_t
 	struct ll_t *next;
 } ll_s;	
 
+
+
 /* Queue functions */
 ll_s *pop(ll_s *ll);
 ll_s *create(const bst_t *node);
 ll_s *append(ll_s *ll, const bst_t *node);
 
-
-typedef struct binary_tree_s binary_tree_t;
-typedef struct binary_tree_s bt;
-typedef struct binary_tree_s bst_t;
-typedef struct binary_tree_s avl_t;
-typedef struct binary_tree_s heap_t;
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
