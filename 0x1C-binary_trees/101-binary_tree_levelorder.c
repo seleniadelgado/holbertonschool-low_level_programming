@@ -1,21 +1,6 @@
 #include "binary_trees.h"
 
 /**
- * struct ll_t - A linked list of nodes
- * @node: A binary tree node
- * @next: A pointer to the next binary tree node
- */
-typedef struct ll_t
-{
-	const bst_t *node;
-	struct ll_t *next;
-} ll_s;	
-
-ll_s *pop(ll_s *ll);
-ll_s *create(const bst_t *node);
-ll_s *append(ll_s *ll, const bst_t *node);
-
-/**
  * binary_tree_levelorder - Traverse through a binary tree using
  * level-order traversal
  * @tree: The pointer to a root node
@@ -25,7 +10,7 @@ ll_s *append(ll_s *ll, const bst_t *node);
 void binary_tree_levelorder(const bst_t *tree, void (*func)(int))
 {
 	ll_s *linked_list;
-	
+
 	if (!tree || !func)
 		return;
 	linked_list = append(NULL, tree);
@@ -43,8 +28,8 @@ void binary_tree_levelorder(const bst_t *tree, void (*func)(int))
 
 /**
  * append - Adds a node to the linked list
- * @ll: The linked list
- * @node: Node to append 
+ * @node: Node to append
+ * Return: A pointer to the ll that was created
  */
 ll_s *create(const bst_t *node)
 {
@@ -52,7 +37,7 @@ ll_s *create(const bst_t *node)
 
 	new_ll = malloc(sizeof(ll_s *));
 	if (!new_ll)
-		return(NULL);
+		return (NULL);
 	new_ll->node = node;
 	new_ll->next = NULL;
 	return (new_ll);
@@ -67,6 +52,7 @@ ll_s *create(const bst_t *node)
 ll_s *pop(ll_s *ll)
 {
 	ll_s *temp;
+
 	if (!ll)
 		return (NULL);
 
@@ -79,7 +65,8 @@ ll_s *pop(ll_s *ll)
 /**
  * append - Adds a node to the linked list
  * @ll: The linked list
- * @node: Node to append 
+ * @node: Node to append
+ * Return: A pointer to the appended LL
  */
 
 ll_s *append(ll_s *ll, const bst_t *node)
@@ -89,7 +76,7 @@ ll_s *append(ll_s *ll, const bst_t *node)
 
 	new_ll = malloc(sizeof(ll_s *));
 	if (!new_ll)
-		return(NULL);
+		return (NULL);
 	new_ll->node = node;
 	new_ll->next = NULL;
 
