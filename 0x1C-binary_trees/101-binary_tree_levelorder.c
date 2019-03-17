@@ -35,7 +35,7 @@ ll_s *create(const bst_t *node)
 {
 	ll_s *new_ll;
 
-	new_ll = malloc(sizeof(ll_s *));
+	new_ll = malloc(sizeof(ll_s));
 	if (!new_ll)
 		return (NULL);
 	new_ll->node = node;
@@ -74,7 +74,7 @@ ll_s *append(ll_s *ll, const bst_t *node)
 	ll_s *new_ll;
 	ll_s *current;
 
-	new_ll = malloc(sizeof(ll_s *));
+	new_ll = malloc(sizeof(ll_s));
 	if (!new_ll)
 		return (NULL);
 	new_ll->node = node;
