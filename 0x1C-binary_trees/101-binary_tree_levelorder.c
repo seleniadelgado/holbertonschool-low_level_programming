@@ -26,6 +26,8 @@ void binary_tree_levelorder(const bst_t *tree, void (*func)(int))
 {
 	ll_s *linked_list;
 	
+	if (!tree || !func)
+		return;
 	linked_list = append(NULL, tree);
 	while (linked_list)
 	{
