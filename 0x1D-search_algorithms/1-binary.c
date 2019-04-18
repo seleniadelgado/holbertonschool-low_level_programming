@@ -33,10 +33,12 @@ int help_search(int *array, size_t begin, size_t end, int value)
 
 	printf("Searching in array: ");
 	for (i = begin; i <= end; i++)
+	{
 		if (i < end)
 			printf("%d, ", array[i]);
 		else
 			printf("%d\n", array[i]);
+	}
 	if (begin == end && array[begin] != value)
 		return (-1);
 	else if (begin == end && array[begin] == value)
